@@ -49,7 +49,8 @@ function FlightPricePredictor() {
     setError(null);
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/predict`, formData);
+      const response = await axios.post("http://127.0.0.1:5000/predict", formData);
+      ;
       setPrediction(response.data.prediction);
     } catch (error) {
       setError(error.response?.data?.message || "Failed to get prediction");
@@ -98,7 +99,7 @@ function FlightPricePredictor() {
         color: "white",
       }}>
         <Typography variant="h4" gutterBottom sx={{ textAlign: "center", fontWeight: "bold" }}>
-          Flight Price Predictor
+          Forever Flights
         </Typography>
         <Box component="form" onSubmit={handleSubmit} sx={{ mt: 3 }}>
           <Grid container spacing={2}>
